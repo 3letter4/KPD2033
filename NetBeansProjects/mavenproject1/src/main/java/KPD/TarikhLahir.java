@@ -3,58 +3,41 @@ import java.util.Scanner;
 
 public class TarikhLahir {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        
-        System.out.println("Masukkan hari dan tahun(nombor):");
-        int hari = input.nextInt();
-        int tahun = input.nextInt();
-        
-        input.nextLine();  // To consume the leftover newline character
-        
-        System.out.println("Masukkan bulan(nombor):");
-        String bulan = input.nextLine(); // Reading the month as string
-        
-        switch (bulan) {
-            case "1": 
-                System.out.println(hari + " Januari " + tahun);
-                break;
-            case "2": 
-                System.out.println(hari + " Februari " + tahun);
-                break;
-            case "3": 
-                System.out.println(hari + " Mac " + tahun);
-                break;
-            case "4": 
-                System.out.println(hari + " April " + tahun);
-                break;
-            case "5": 
-                System.out.println(hari + " Mei " + tahun);
-                break;
-            case "6": 
-                System.out.println(hari + " Jun " + tahun);
-                break;
-            case "7": 
-                System.out.println(hari + " Julai " + tahun);
-                break;
-            case "8": 
-                System.out.println(hari + " Ogos " + tahun);
-                break;
-            case "9": 
-                System.out.println(hari + " September " + tahun);
-                break;
-            case "10": 
-                System.out.println(hari + " Oktober " + tahun);
-                break;
-            case "11": 
-                System.out.println(hari + " November " + tahun);
-                break;
-            case "12": 
-                System.out.println(hari + " Disember " + tahun);
-                break;
-            default:
-                System.out.println("Bulan tidak sah.");
-                break;
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.println("Masukkan hari dan tahun (nombor):");
+            int hari = input.nextInt(); // Reading day as integer
+            int tahun = input.nextInt(); // Reading year as integer
+            
+            input.nextLine(); // To consume the leftover newline character
+            
+            System.out.println("Masukkan bulan (nombor atau nama):");
+            String bulan = input.nextLine(); // Reading the month as string
+            
+            // Enhanced switch to determine the month in Malay
+            String namaBulan = switch (bulan.toLowerCase()) {
+                case "1", "januari" -> "Januari";
+                case "2", "februari" -> "Februari";
+                case "3", "mac" -> "Mac";
+                case "4", "april" -> "April";
+                case "5", "mei" -> "Mei";
+                case "6", "jun" -> "Jun";
+                case "7", "julai" -> "Julai";
+                case "8", "Ogos" -> "Ogos";
+                case "9", "sptember" -> "Sptember";
+                case "10", "oktober" -> "Oktober";
+                case "11", "november" -> "November";
+                case "12", "december" -> "Disember";
+                default -> "Bulan tidak sah"; // Default case
+            };
+
+            // Print the formatted date if the month is valid
+            if (!namaBulan.equals("Bulan tidak sah")) {
+                System.out.println("Tarikh lahir anda: " + hari + " " + namaBulan + " " + tahun);
+            } else {
+                System.out.println("Bulan tidak sah. Sila masukkan bulan yang betul.");
+            }
         }
     }
 }
+
 
