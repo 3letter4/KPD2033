@@ -9,9 +9,11 @@ public class GredMarkah {
         String nama = input.nextLine();
         System.out.println("Masukkan markah:");
         double markah = input.nextDouble();
-        String gred;
-        
-        if (markah >= 90) {
+        String gred = ""; // Initialize gred with an empty string
+
+        if (markah < 0 || markah > 100){
+            System.out.println("Markah tak sah, sila masukkan markah mengikut ketetapan yang betul");
+        } else if (markah >= 90) {
             gred = "A+";
         } else if (markah >= 80) {
             gred = "A";
@@ -33,8 +35,10 @@ public class GredMarkah {
             gred = "G";
         }
 
-        // Fixed concatenation by adding '+' operators
-        System.out.println(nama + " mendapat gred " + gred + " dengan markah " + markah);
+        // Now, gred will always have a value
+        if (markah >= 0 && markah <= 100) { // Only print if markah is valid
+            System.out.println(nama + " mendapat gred " + gred + " dengan markah " + markah);
+        }
     }
 }
 
