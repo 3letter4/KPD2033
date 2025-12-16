@@ -1,1 +1,28 @@
-(Nothing)
+```
+# Java/Maven specific
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE
+.netbeans/
+nbproject/private/
+build/
+
+# Dependencies
+lib/
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# OS generated
+.DS_Store
+Thumbs.db
+```
