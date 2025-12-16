@@ -34,5 +34,32 @@ The program accepts both numeric month values (e.g., "1" for January) and month 
 
 ---
 
+## Project Structure
 
+```
+/workspace/
+├── README.md
+└── NetBeansProjects/
+    └── mavenproject1/
+        └── src/main/java/KPD/
+            ├── GredMarkah.java
+            └── TarikhLahir.java
+```
 
+## How to Run
+
+To compile and run these Java programs:
+
+```bash
+cd /workspace/NetBeansProjects/mavenproject1
+mvn compile
+mvn exec:java -Dexec.mainClass="KPD.GredMarkah"
+# or
+mvn exec:java -Dexec.mainClass="KPD.TarikhLahir"
+```
+
+## Author
+Student of KPD2033 Subject
+
+## License
+This project is educational in nature and meant for learning Java programming concepts.
